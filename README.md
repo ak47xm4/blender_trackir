@@ -10,3 +10,8 @@ how to use for now:
 https://www.youtube.com/watch?v=gO64xwc3V0w
 
 ctrl+z were fixed
+
+
+code source:
+https://github.com/jkirsons/FacialMotionCapture_v2
+https://github.com/johnflux/python_trackir
