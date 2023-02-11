@@ -1,23 +1,8 @@
 import bpy
 
-
-bpy.types.Scene.moving_mult = bpy.props.FloatProperty(name="moving_mult", 
-    description="test", default=0.025, min=0, max=1.0, soft_min=0.0, soft_max=1.0, 
-    step=1, precision=4, unit='NONE', update=None, get=None, set=None)
-
-bpy.types.Scene.force_autokeyframe = bpy.props.BoolProperty(
-    name="force_autokeyframe",
-    description="force autokeyframe",
-    default = False)
-        
-bpy.types.Scene.xform_obj = bpy.props.StringProperty(
-    name = "xform_obj",
-    maxlen = 1000,
-    default = ""
-    )
-        
 class OBJECT_MT_OpenCVPanel(bpy.types.WorkSpaceTool):
     """Creates a Panel in the Object properties window"""
+    bl_idname = "wm.OBJECT_MT_OpenCVPanel"
     bl_label = "OpenCV Animation"
     bl_space_type = 'VIEW_3D'
     bl_context_mode='OBJECT'
@@ -25,9 +10,26 @@ class OBJECT_MT_OpenCVPanel(bpy.types.WorkSpaceTool):
     #bl_region_type = 'TOOLS'
     bl_idname = "ui_plus.opencv"
     #bl_context = "object"
-    bl_options = {}
+    bl_options = {'REGISTER'}
 
     bl_icon = "ops.generic.select_circle"
+    
+    
+    
+    bpy.types.Scene.moving_mult = bpy.props.FloatProperty(name="moving_mult", 
+    description="test", default=0.025, min=0, max=1.0, soft_min=0.0, soft_max=1.0, 
+    step=1, precision=4, unit='NONE', update=None, get=None, set=None)
+
+    bpy.types.Scene.force_autokeyframe = bpy.props.BoolProperty(
+    name="force_autokeyframe",
+    description="force autokeyframe",
+    default = False)
+        
+    bpy.types.Scene.xform_obj = bpy.props.StringProperty(
+    name = "xform_obj",
+    maxlen = 1000,
+    default = ""
+    )
 
         
     def draw_settings(context, layout, tool):
@@ -53,12 +55,15 @@ class OBJECT_MT_OpenCVPanel(bpy.types.WorkSpaceTool):
 def register():
     #bpy.utils.register_class(OBJECfT_MT_OpenCVPanel)
     #bpy.types.VIEW3D_PT_tools_active.prepend(OBJECT_MT_OpenCVPanel.draw)  # << add menu above
+    # bpy.utils.register_tool(OBJECT_MT_OpenCVPanel, separator=True, group=True)
     bpy.utils.register_tool(OBJECT_MT_OpenCVPanel, separator=True, group=True)
 
 def unregister():
     #bpy.types.VIEW3D_PT_tools_active.remove(OBJECT_MT_OpenCVPanel.draw)
     #bpy.utils.unregister_class(OBJECT_MT_OpenCVPanel)
     bpy.utils.unregister_tool(OBJECT_MT_OpenCVPanel)
-
+    
+'''
 if __name__ == "__main__":
     register()
+'''
