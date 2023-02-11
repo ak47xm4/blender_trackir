@@ -1,9 +1,9 @@
 bl_info = {
     "name": "trackir mijo",
-    "blender": (3, 40, 1),
+    "blender": (3, 0, 40),
     "category": "3D View",
     "author": "mijo",
-    "location": "View3D > right-side panel > ",
+    "location": "View3D > left-side panel >  ",
     "description":"",
     "warning": "",
     "wiki_url":"",
@@ -16,19 +16,13 @@ bl_info = {
 from . import b3d_trackir_Operator , b3d_trackir_Anim
 
 import bpy
-# from bpy.app.handlers import persistent
-classes = [
-    b3d_trackir_Operator,
-    b3d_trackir_Anim,
-]
-
-def scene_update_post_handler(dummy):
-    pass
 
 def register():
-    for c in classes:
-        c.register()
+    b3d_trackir_Anim.register()
+    b3d_trackir_Operator.register()
+    # print('test_register:')
     
 def unregister():
-    for c in classes:
-        c.unregister()
+    b3d_trackir_Anim.unregister()
+    b3d_trackir_Operator.unregister()
+    # print('test_unregister:')

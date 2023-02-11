@@ -217,18 +217,13 @@ class OpenCVAnimOperator(bpy.types.Operator):
 
 def register():
     bpy.utils.register_class(OpenCVAnimOperator)
+    # print('test_register: OpenCVAnimOperator')
 
 def unregister():
     bpy.utils.unregister_class(OpenCVAnimOperator)
-    
+    # print('test_unregister: OpenCVAnimOperator')
     
 '''
 if __name__ == "__main__":
     register()
-
-    # test call
-    #bpy.ops.wm.opencv_operator()
-
-
-
 '''
