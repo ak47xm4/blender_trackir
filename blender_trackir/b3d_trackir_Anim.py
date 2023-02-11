@@ -10,12 +10,26 @@ class OBJECT_MT_OpenCVPanel(bpy.types.WorkSpaceTool):
     #bl_region_type = 'TOOLS'
     bl_idname = "ui_plus.opencv"
     #bl_context = "object"
-    bl_options = {'REGISTER'}
+    bl_options = {}
 
     bl_icon = "ops.generic.select_circle"
-    
+    '''
+    bpy.types.Scene.moving_mult = bpy.props.FloatProperty(name="moving_mult", 
+        description="test", default=0.025, min=0, max=1.0, soft_min=0.0, soft_max=1.0, 
+        step=1, precision=4, unit='NONE', update=None, get=None, set=None)
 
-    
+    bpy.types.Scene.force_autokeyframe = bpy.props.BoolProperty(
+        name="force_autokeyframe",
+        description="force autokeyframe",
+        default = False)
+            
+    bpy.types.Scene.xform_obj = bpy.props.StringProperty(
+        name = "xform_obj",
+        maxlen = 1000,
+        default = ""
+        )
+        
+    '''
         
     def draw_settings(context, layout, tool):
         sce = context.scene

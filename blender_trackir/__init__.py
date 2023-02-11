@@ -18,6 +18,21 @@ from . import b3d_trackir_Operator , b3d_trackir_Anim
 import bpy
 
 def register():
+    bpy.types.Scene.moving_mult = bpy.props.FloatProperty(name="moving_mult", 
+        description="test", default=0.025, min=0, max=1.0, soft_min=0.0, soft_max=1.0, 
+        step=1, precision=4, unit='NONE', update=None, get=None, set=None)
+
+    bpy.types.Scene.force_autokeyframe = bpy.props.BoolProperty(
+        name="force_autokeyframe",
+        description="force autokeyframe",
+        default = False)
+            
+    bpy.types.Scene.xform_obj = bpy.props.StringProperty(
+        name = "xform_obj",
+        maxlen = 1000,
+        default = ""
+        )
+        
     b3d_trackir_Anim.register()
     b3d_trackir_Operator.register()
     # print('test_register:')
